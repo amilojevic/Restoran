@@ -1,0 +1,460 @@
+.mainHeader{
+	text-align: center;
+}
+
+/*body {
+	background: #ae8648;
+}*/
+
+
+.imageLogo{
+	float: left;
+	background: #ae8648;
+	height: 15%;
+	width: 15%;
+}
+.mainTitle {
+	font-family: "Great Vibes";
+	font-size: 500%;
+	text-align: center;
+	display: inline-block;
+}
+.navbar {
+	width: 100%;
+}
+.navbarItems{
+
+	width: 100%;
+  list-style: none;
+}
+
+.navbarItems li {
+	width: 13%;
+	position: relative;
+  	float: left;
+  	font-size: 150%;
+  	margin: 1%;
+  	cursor: pointer;
+  	background: rgba(255, 255, 255, 0.8);
+  	text-align: center;
+  	border-radius: .75em;
+  	transition-duration: .3s;
+  	transition-timing-function: ease-in-out;
+  	transition-property: background, color, padding, border-radius;
+  	box-shadow: 0.1em -0.1em 0 0.1em rgba(0, 0, 0, 0.2), inset 0 0 0 0.15em rgba(0, 0, 0, 0.4), -0.1em 0.1em 0 0.1em rgba(0, 0, 0, 0.2);
+  	font-family: "Great Vibes";
+
+}
+
+.navbarItems li:after {
+	position: absolute;
+  	z-index: -1;
+  	content: "";
+  	right: 0;
+  	border-radius: 50%;
+  	box-shadow: 1em 1em 0 2em rgba(255, 255, 255, 0.5);
+}
+
+.navbarItems li:hover {
+	background-color: rgba(251, 93, 0, 0.8);
+  	padding-left: 1em;
+}
+
+.navbarItems li a {
+	text-decoration: none;
+	color: black;
+}
+
+.quoteContainer {
+	width: 100%;
+	margin: 0;
+	height: auto;
+	padding: 0;
+	background-image: url(https://s-media-cache-ak0.pinimg.com/originals/bc/6b/88/bc6b88a9788c3d27e8c2d34648ada1f9.jpg);
+	background-size: contain;
+	clear: both;
+}
+
+.footSocial {
+	width: 100%;
+	margin: 0;
+	height: 240px;
+	padding: 0;
+	background: #303030;
+	text-align: center;
+}
+
+.bodyImage {
+	background-color: #e5d5ad;
+	background-size: cover;
+	width: 100%;
+	overflow: hidden;
+}
+
+.tileContact {
+	width: 100%;
+}
+.formContact {
+	width: 48%;
+	float: left;
+}
+
+.contactName {
+	width: 46%;
+	padding-left: 2%;
+	margin-bottom: 5%;
+	margin-left: 2%;
+	margin-top: 3%;
+}
+
+.contactEmail {
+	width: 46%;
+	padding-left: 2%;
+	margin-left: 3%;
+	margin-bottom: 5%;
+	margin-top: 3%;
+}
+
+.contactSubject {
+	width: 96%;
+	margin-left: 2%;
+	margin-bottom: 5%;
+}
+
+.contactMessage {
+	width: 96%;
+	margin-left: 2%;
+	margin-bottom: 3%;
+}
+
+.contactTitle {
+	font-family: "Great Vibes";
+	font-size: 35px;
+	text-align: center;
+	margin-bottom: 2%;
+	margin-top: 2%;
+}
+
+.titleMessage {
+	font-family: "Lucida Sans Unicode";
+	font-size: 15px;
+	text-align: center;
+	margin-bottom: 2%;
+}
+
+.socialContact {
+	width: 48%;
+	float: right;
+}
+
+.socialContact p {
+	width: 60%;
+	font-size: 21px;
+    margin-right: 2%;
+    line-height: 27px;
+    color: #ae8648;
+    margin-top: 5%;
+}
+
+.tileReservations {
+	width: 100%;
+}
+
+.reservationDecoration {
+	width: 45%;
+	size: 45%;
+	float: left;
+}
+
+.formReservations {
+	widows: 45%;
+}
+
+.imageReservation {
+	max-width: 100%;
+    height: auto;
+    width: auto\9; 
+}
+
+.reservationName {
+	width: 24%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.reservationLastName {
+	width: 24%;
+}
+
+.reservationEmail {
+	width: 50.3%;
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
+
+.reservationTime {
+	width: 24%;
+	margin-bottom: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.reservationDate {
+	width: 24%;
+	margin-bottom: 2%;
+	margin-right: 2%;
+}
+
+.reservationSend {
+	width: 15%;
+	font-weight: 700;
+    font-style: italic;
+    background: #ae8648;
+    color: #fff;
+    height: auto;
+    padding: 11px;
+    box-shadow: none;
+    border: 0;
+}
+
+.buttonHolder {
+	text-align: center;
+}
+
+.tileRegistration {
+	width: 100%;
+}
+
+.registrationNewUser {
+	width: 46%;
+	float: left;
+}
+
+.formLogin {
+	width: 46%;
+	float: right;
+}
+
+.loginUsername {
+	width: 80%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 2%;
+}
+
+.loginPassword {
+	width: 80%;
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
+
+.buttonRegister {
+	width: 15%;
+	font-weight: 700;
+    font-style: italic;
+    background: #ae8648;
+    color: #fff;
+    height: auto;
+    padding: 11px;
+    box-shadow: none;
+    border: 0;
+    margin-top: 3%;
+}
+
+.formRegister{
+	width: 100%;
+}
+
+.registerName {
+	width: 47%;
+	margin-left: 2%;
+}
+
+.registerLastname {
+	width: 47%;
+	margin-left: 2%;
+}
+
+.registerGender {
+	clear: none;
+	display: inline;
+	width: 97%;
+}
+
+.registerGender input {
+	margin-left: 5%;
+	clear: none;
+	display: inline;
+}
+
+.registerUsername {
+	margin-left: 2%;
+	width: 96.3%;
+	margin-bottom: 3%;
+}
+
+.registerPassword {
+	margin-left: 2%;
+	width: 96.3%;
+	margin-bottom: 3%;
+}
+.nav-trigger {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.mySlides {
+	margin-top: 5%;
+}
+
+.quoteTitle {
+	font-family: "Great Vibes";
+	font-size: 250%;
+	text-align: center;
+	margin-top: 5%;
+	padding-top: 5%;
+	color:  #ffffff;
+}
+
+.quoteAuthor {
+	font-family: "Lucida Sans Unicode";
+	font-size: 200%;
+	text-align: center;
+	margin-left: 40%;
+	color: #ffffff;
+}
+
+.footImg {
+	margin-top: 2%;
+	height: 80%;
+	width: 30%;
+	background: #333333;
+}
+
+@media screen and (max-width: 750px) and (min-width: 0px) {
+    .formContact {
+    	width: 100%;
+    }
+    .reservationSend {
+		width: 15%;
+		font-weight: 300;
+    	font-style: italic;
+    	background: #ae8648;
+    	color: #fff;
+    	height: auto;
+    	box-shadow: none;
+    	border: 0;
+	}
+
+	.contactName {
+		width: 96%;
+		padding-left: 2%;
+		margin-bottom: 5%;
+		margin-left: 2%;
+		margin-top: 3%;
+	}
+
+	.contactEmail {
+		width: 96%;
+		padding-left: 2%;
+		margin-left: 2%;
+		margin-bottom: 5%;
+		margin-top: 3%;
+	}
+
+	.socialContact {
+		width: 100%;
+	}
+
+	.reservationDecoration {
+		width: 100%;
+	}
+
+	.formReservations {
+		width: 100%;
+	}
+
+	.reservationName {
+		width: 96%;
+	}
+
+	.reservationLastName {
+		width: 96%;
+		margin-left: 2%;
+		margin-bottom: 2%;
+	}
+
+	.reservationEmail {
+		width: 96%;
+		margin-left: 2%;
+		margin-bottom: 2%;
+}
+
+	.reservationTime {
+		width: 96%;
+		margin-bottom: 2%;
+		margin-left: 2%;
+	}
+
+	.reservationDate {
+		width: 96%;
+		margin-bottom: 2%;
+		margin-left: 2%;
+	}
+
+	.registrationNewUser {
+		width: 100%;
+	}
+
+	.formLogin {
+		width: 100%;
+	}
+
+	.loginUsername {
+		width: 96%;
+	}
+
+	.loginPassword {
+		width: 96%;
+	}
+
+	.registerName {
+		width: 96%;
+		margin-bottom: 2%;
+	}
+
+	.registerLastname {
+		width: 96%;
+	}
+
+	.navbar {
+		width: 100%;
+	}
+
+	.navbarItems{
+		padding: 0 .5em;
+	}
+
+	.navbarItems li {
+		width: 97%;
+    	padding: 0.5% 0.2%;
+	}
+
+	.navbarItems li:hover {
+		background-color: rgba(251, 93, 0, 0.8);
+  		padding-left: 0.5em;
+	}
+	.mainTitle {
+		display: inline;
+	}
+}
+/* Great Vibes font from googleFonts */
+@font-face {
+  font-family: 'Great Vibes';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Great Vibes'), local('GreatVibes-Regular'), url(http://fonts.gstatic.com/s/greatvibes/v4/6q1c0ofG6NKsEhAc2eh-3Y4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
