@@ -255,7 +255,6 @@
 
 .buttonRegister {
 	width: 15%;
-	font-weight: 700;
     font-style: italic;
     background: #ae8648;
     color: #fff;
@@ -264,6 +263,7 @@
     box-shadow: none;
     border: 0;
     margin-top: 3%;
+    cursor: pointer;
 }
 
 .formRegister{
@@ -331,7 +331,7 @@
 
 .footImg {
 	margin-top: 2%;
-	height: 80%;
+	height: 90%;
 	width: 30%;
 	background: #303030;
 }
@@ -459,6 +459,10 @@
 	}
 	.mainTitle {
 		font-size: 200%;
+	}
+
+	.footImg {
+		width: 50%;
 	}
 }
 
