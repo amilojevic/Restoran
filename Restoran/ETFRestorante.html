@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="scriptRestorante.js"></script>
 	<meta name="viewport" content="width=device-width">
 </head>
-<body id="body">
+<body id="body" onLoad="onLoadHome()">
 	<div class="mainHeader">
 		<img class="imageLogo" src="RestoranteLogo.jpg" alt="logoTop">
 		<div class="mainTitle">ETF Restorante</div>
@@ -18,10 +18,10 @@
 				<label onclick="loadDoc('ETFRestorante.html')">Home</button>
 			</li>
 			<li>
-				<a href="#"> About us</a>
+				<a href="#">About Us</a>
 			</li>
 			<li>
-				<a href="#">Our offers</a>
+				<label onclick="loadDoc('OurOffers.html')">Our offers</button>
 			</li>
 			<li>
 				<label onclick="loadDoc('Reservations.html')">Reservations</button>

@@ -9,10 +9,10 @@
 				<label onclick="loadDoc('ETFRestorante.html')">Home</button>
 			</li>
 			<li>
-				<a href="#"> About us</a>
+				<a href="#">About Us</a>
 			</li>
 			<li>
-				<a href="#">Our offers</a>
+				<label onclick="loadDoc('OurOffers.html')">Our offers</button>
 			</li>
 			<li>
 				<label onclick="loadDoc('Reservations.html')">Reservations</button>
@@ -37,7 +37,7 @@
 					If You are a new user please click on a button bellow to register
 				</div>
 				<div class="buttonHolder">
-					<form style="display: inline" action="newUser.html">
+					<form style="display: inline" onsubmit="return loadDoc('newUser.html');">
  						<button class="buttonRegister" type="submit">Register</button> 
 					</form>
 				</div>

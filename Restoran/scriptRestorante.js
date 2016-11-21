@@ -1,12 +1,62 @@
+var modal;
+var img;
+var modalImg;
+var captionText;
+var span;
+var escKeyDown;
 
-window.onload = function () {
+/*window.onload = function () {
     var elementExists = document.getElementById("mySlides");
     if(elementExists){
         slideIndex = 0;
         carousel();
     }
-}
+    var imageElementExists = document.getElementById("myImg");
+    if(imageElementExists) {
+        modal = document.getElementById('myModal');
 
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        img = document.getElementById('myImg');
+        modalImg = document.getElementById("img01");
+        captionText = document.getElementById("caption");
+        span = document.getElementsByClassName("close")[0];
+        escKeyDown = document.getElementById("img01").onkeydown = function() {escKeyDownPress()};
+        escKeyDown.focus();
+    }
+}*/
+function onLoadHome()
+{
+    slideIndex = 0;
+    carousel();
+}
+function loadImage()
+{
+    modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        img = document.getElementById('myImg');
+        modalImg = document.getElementById("img01");
+        captionText = document.getElementById("caption");
+        span = document.getElementsByClassName("close")[0];
+}
+document.onkeydown = function(key){
+    if (key.which == 27)
+        modal.style.display = "none";
+}
+function zoomImage(src, alt){
+    modal.style.display = "block";
+    modalImg.src = src;
+    captionText.innerHTML = alt;
+    modal.addEventListener("keydown", escKeyDown); 
+}
+function escKeyDownPress()
+{
+    modal.style.display = "none";
+}
+function closeImage()
+{
+    modal.style.display = "none";
+}
 function carousel() {
     var i;
     var x = document.getElementsByClassName("mySlides");
@@ -156,3 +206,4 @@ function loadDoc(site) {
   xhttp.open("GET", site, true);
   xhttp.send();
 }
+

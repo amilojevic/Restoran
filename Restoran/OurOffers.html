@@ -1,0 +1,59 @@
+
+<body id="body" >
+
+<div class="mainHeader">
+		<img class="imageLogo" src="RestoranteLogo.jpg" alt="logoTop">
+		<div class="mainTitle">ETF Restorante</div>
+	</div>
+	<nav class="navbar" id="navigation">
+		<ul class="navbarItems">
+			<li>
+				<label onclick="loadDoc('ETFRestorante.html')">Home</button>
+			</li>
+			<li>
+				<a href="#">About Us</a>
+			</li>
+			<li>
+				<label onclick="loadDoc('OurOffers.html')">Our offers</button>
+			</li>
+			<li>
+				<label onclick="loadDoc('Reservations.html')">Reservations</button>
+			</li>
+			<li>
+				<label onclick="loadDoc('ContactUs.html')">Contact Us</button>
+			</li>
+			<li>
+				<label onclick="loadDoc('Registrations.html')">Registration</button>
+			</li>
+		</ul>
+	</nav>
+	<div class="gallery">
+		<div class="imageHolder">
+		<img class="imageGallery" onload="loadImage()" id="myImg" src="PiletinaSaGljivama.jpg" alt="Piletina u sosu od gljiva" width="300" height="200" onclick="zoomImage('PiletinaSaGljivama.jpg', 'Piletina u sosu od gljiva')" >
+		</div>
+		<div class="imageHolder">
+		<img class="imageGallery" onload="loadImage()" id="myImg" src="DimljeniSaran.jpg" alt="Dimljeni Saran" width="300" height="200" onclick="zoomImage('DimljeniSaran.jpg', 'Dimljeni Saran')" >
+		</div>
+		<div class="imageHolder">
+		<img class="imageGallery" onload="loadImage()" id="myImg" src="Lignje.jpg" alt="Lignje" width="300" height="200" onclick="zoomImage('Lignje.jpg', 'Lignje')" >
+		</div>
+		<div class="imageHolder">
+		<img class="imageGallery" onload="loadImage()" id="myImg" src="PiletinaUSosuGongorzole.jpg" alt="Piletina u sosu gongorzole" width="300" height="200" onclick="zoomImage('PiletinaUSosuGongorzole.jpg', 'Piletina u sosu gongorzole')" >
+		</div>
+		<div class="imageHolder">
+		<img class="imageGallery" onload="loadImage()" id="myImg" src="SalataOdPastrmke.jpg" alt="Salata od pastrmke" width="300" height="200" onclick="zoomImage('SalataOdPastrmke.jpg', 'Salata od pastrmke')" >
+		</div>
+		<div class="imageHolder">
+		<img class="imageGallery" onload="loadImage()" id="myImg" src="FiletiPastrmkeUSosuCrvenogVina.jpg" alt="Fileti pastrmke u sosu crvenog vina" width="300" height="200" onclick="zoomImage('FiletiPastrmkeUSosuCrvenogVina.jpg', 'Fileti pastrmke u sosu crvenog vina')" >
+		</div>
+	</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeImage()">×</span>
+  <img  class="modal-content" id="img01" >
+  <div id="caption"></div>
+</div>
+<div class="footSocial">
+		<img class="footImg" src="RestaurantLogoBottom.png" alt="logoBottom">
+	</div>
+</body>
