@@ -14,3 +14,4 @@ Restoran za WT. Mogucnost pregleda meni-a, rezervacije i drugo. Andrej Milojevic
 * Uraden Ajax, galerija, auto-carousel(ne znam da li se ovo broji pod carousel) i validacija formi (nije uradena samo jedna validacije forme a to je zbog toga sto je u toj formi samo button)
 * Ajax loadnje radi na Firefoxu bez dizanje servera dok na onstalim browserima treba dici server
 * Ima mali bug gdje se u formi kada nastupi greska pomjeri input linija u novi red
+* Ovaj update na folderu restoran je samo zbog toga sto sam obrisao jedan nevazan file(ostao tokom commita), svi ostali filovi (filovi vezabi za zadacu) su commitani 2 sata prije roka
