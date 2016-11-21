@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<title>ETF Restorante Reservations</title>
-	<link rel="stylesheet" type="text/css" href="styleRestorante.css">
-	<meta name="viewport" content="width=device-width">
-</head>
-<body>
+<body id="body"> 
 	<div class="mainHeader">
 		<img class="imageLogo" src="http://www.logofound.com/wp-content/uploads/2014/08/Restaurant_Logo_Design_Template3.jpg" alt="logoRestoran" />
 		<div class="mainTitle">ETF Restorante</div>
@@ -14,22 +6,22 @@
 	<div class="navbar">
 		<ul class="navbarItems">
 			<li>
-				<a href="ETFRestorante.html"> Home</a>
+				<label onclick="loadDoc('ETFRestorante.html')">Home</button>
 			</li>
 			<li>
-				About us
+				<a href="#"> About us</a>
 			</li>
 			<li>
-				Our offers
+				<a href="#">Our offers</a>
 			</li>
 			<li>
-				<a href="Reservations.html"> Reservations</a>
+				<label onclick="loadDoc('Reservations.html')">Reservations</button>
 			</li>
 			<li>
-				<a href="ContactUs.html"> Contact us</a>
+				<label onclick="loadDoc('ContactUs.html')">Contact Us</button>
 			</li>
 			<li>
-				<a href="Registrations.html"> Registration</a>
+				<label onclick="loadDoc('Registrations.html')">Registration</button>
 			</li>
 		</ul>
 	</div>	
@@ -45,15 +37,18 @@
 			<div class="reservationDecoration">
 				<img class="imageReservation" src="reservationsImage.png" alt="reservation">
 			</div>
-			<form class="formReservations">
-				
-				<input class="reservationName" type="text" placeholder="Name">
-				<input class="reservationLastName" type="text" placeholder=" Last Name">
-				<input class="reservationEmail" type="email" placeholder="Email"> 
-				<input class="reservationTime" type="text" placeholder="Time"> 
+			<form class="formReservations" name="formReservations" onsubmit="return validateReservation();">
+				<div class="reservationName" id="errReservationName" >Please fill your reservation name</div>
+				<input class="reservationName" name="reservationName" type="text" placeholder="Name">
+				<div class="reservationName" id="errReservationLastName" >Please fill your reservation last name</div>
+				<input class="reservationLastName" name="reservationLastName" type="text" placeholder=" Last Name">
+				<div class="reservationName" id="errReservationEmail" >Please fill your reservation email</div>
+				<input class="reservationEmail" name="reservationEmail" type="email" placeholder="Email"> 
+				<div class="reservationName" id="errReservationTime" >Please fill your reservation time</div>
+				<input class="reservationTime" name="reservationTime" type="text" placeholder="Time"> 
 				<input type="date" class="reservationDate" min="2016-11-07">
 				<div class="buttonHolder">
-					<input class="reservationSend" type="submit" value="Send">
+					<input class="reservationSend" type="submit" value="Send" onclick="return validateReservation()">
 				</div>
 			</form>
 		</div>
@@ -62,4 +57,3 @@
 		<img class="footImg" src="RestaurantLogoBottom.png" alt="logoBottom">
 	</div>
 </body>
-</html>

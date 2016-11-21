@@ -1,12 +1,5 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<title>ETF Restorante Contact Us</title>
-	<link rel="stylesheet" type="text/css" href="styleRestorante.css">
-	<meta name="viewport" content="width=device-width">
-</head>
-<body>
+
+<body id="body">
 	<div class="mainHeader">
 		<img class="imageLogo" src="http://www.logofound.com/wp-content/uploads/2014/08/Restaurant_Logo_Design_Template3.jpg" alt="logo" />
 		<div class="mainTitle">ETF Restorante</div>
@@ -14,40 +7,44 @@
 	<div class="navbar">
 		<ul class="navbarItems">
 			<li>
-				<a href="ETFRestorante.html"> Home</a>
+				<label onclick="loadDoc('ETFRestorante.html')">Home</button>
 			</li>
 			<li>
-				About us
+				<a href="#"> About us</a>
 			</li>
 			<li>
-				Our offers
+				<a href="#">Our offers</a>
 			</li>
 			<li>
-				<a href="Reservations.html"> Reservations</a>
+				<label onclick="loadDoc('Reservations.html')">Reservations</button>
 			</li>
 			<li>
-				<a href="ContactUs.html"> Contact us</a>
+				<label onclick="loadDoc('ContactUs.html')">Contact Us</button>
 			</li>
 			<li>
-				<a href="Registrations.html"> Registration</a>
+				<label onclick="loadDoc('Registrations.html')">Registration</button>
 			</li>
 		</ul>
 	</div>	
 	<div class="bodyImage"> 
 		<div class="tileContact">
-			<form class="formContact">
+			<form class="formContact" name="formContact" onsubmit="return validateContact();">
 				<div class="contactTitle">
 					Send a message
 				</div>
 				<div class="titleMessage">
 					Do you have somenthing to tell us. Please do not hesitate to get in touch to us via our contact form
 				</div>
-				<input class="contactName" type="text" placeholder="Name">
-				<input class="contactEmail" type="email" placeholder="Your Email Address"> 
-				<input class="contactSubject" type="text" placeholder="Subject"> 
-				<textarea class="contactMessage" placeholder="Your Message"></textarea>
+				<div id="errName" >Please fill your contact name</div>
+				<input class="contactName" name="contactName" type="text" placeholder="Name">
+				<div class="contactEmail" id="errEmail" >Please fill your contact email</div>
+				<input class="contactEmail" name="email" type="email" placeholder="Your Email Address"> 
+				<div class="contactSubject" id="errSubject" >Please fill your contact subject</div>
+				<input class="contactSubject" name="subject" type="text" placeholder="Subject"> 
+				<div class="contactSubject" id="errText" >Please fill your contact text</div>
+				<textarea class="contactMessage" name="text" placeholder="Your Message"></textarea>
 				<div class="buttonHolder">
-					<input class="reservationSend" type="submit" value="Send">
+					<input class="reservationSend" type="submit" value="Send" onclick="return validateContact()">
 				</div>
 			</form>
 			<div class="socialContact">
@@ -68,4 +65,3 @@
 		<img class="footImg" src="RestaurantLogoBottom.png" alt="logoBottom">
 	</div>
 </body>
-</html>

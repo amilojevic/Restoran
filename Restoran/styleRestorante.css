@@ -336,6 +336,73 @@
 	background: #303030;
 }
 
+#errName {
+	color: red;
+	display: none;
+}
+
+#errEmail {
+	color: red;
+	display: none;
+}
+
+#errSubject {
+	color: red;
+	display: none;
+}
+
+#errText {
+	color: red;
+	display: none;
+}
+
+#errLoginUser {
+	color: red;
+	display: none;
+}
+#errLoginPass{
+	color: red;
+	display: none;
+}
+#errRegisterName{
+	color: red;
+	display: none;
+}
+#errRegisterLastName{
+	color: red;
+	display: none;
+}
+#errRegisterUsername{
+	color: red;
+	display: none;
+}
+#errRegisterPassword{
+	color: red;
+	display: none;
+}
+#errRegisterPasswordAgain{
+	color: red;
+	display: none;
+}
+#errReservationName{
+	color: red;
+	display: none;
+}
+#errReservationLastName{
+	color: red;
+	display: none;
+}
+#errReservationEmail{
+	color: red;
+	display: none;
+}
+#errReservationTime{
+	color: red;
+	display: none;
+}
+.navbarItems li label{
+	cursor: pointer;
+}
 @media all and (max-width: 750px){
     .formContact {
     	width: 100%;

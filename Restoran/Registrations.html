@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<title>ETF Restorante Login in</title>
-	<link rel="stylesheet" type="text/css" href="styleRestorante.css">
-	<meta name="viewport" content="width=device-width">
-</head>
-<body>
+<body id="body">
 	<div class="mainHeader">
 		<img class="imageLogo" src="http://www.logofound.com/wp-content/uploads/2014/08/Restaurant_Logo_Design_Template3.jpg" alt="logoRestoran" />
 		<div class="mainTitle">ETF Restorante</div>
@@ -14,22 +6,22 @@
 	<div class="navbar">
 		<ul class="navbarItems">
 			<li>
-				<a href="ETFRestorante.html"> Home</a>
+				<label onclick="loadDoc('ETFRestorante.html')">Home</button>
 			</li>
 			<li>
-				About us
+				<a href="#"> About us</a>
 			</li>
 			<li>
-				Our offers
+				<a href="#">Our offers</a>
 			</li>
 			<li>
-				<a href="Reservations.html"> Reservations</a>
+				<label onclick="loadDoc('Reservations.html')">Reservations</button>
 			</li>
 			<li>
-				<a href="ContactUs.html"> Contact us</a>
+				<label onclick="loadDoc('ContactUs.html')">Contact Us</button>
 			</li>
 			<li>
-				<a href="Registrations.html"> Registration</a>
+				<label onclick="loadDoc('Registrations.html')">Registration</button>
 			</li>
 		</ul>
 	</div>	
@@ -50,17 +42,19 @@
 					</form>
 				</div>
 			</div>
-			<form class="formLogin">
+			<form class="formLogin" name="formLogin" onsubmit="return validateLogin();">
 				<div class="contactTitle">
 					Already a user
 				</div>
 				<div class="titleMessage">
 					If You are already a user please enter Your credetianls bellow
 				</div>
-				<input class="loginUsername" type="text" placeholder="Username">
-				<input class="loginPassword" type="password" placeholder=" Password">
+				<div class="loginUsername" id="errLoginUser" >Please fill your login username</div>
+				<input class="loginUsername" name="loginUser" type="text" placeholder="Username">
+				<div class="loginPassword" id="errLoginPass" >Please fill your login password</div>
+				<input class="loginPassword" name="loginPass" type="password" placeholder=" Password">
 				<div class="buttonHolder">
-					<input class="reservationSend" type="submit" value="Send">
+					<input class="reservationSend" type="submit" value="Send" onclick="return validateLogin()">
 				</div>
 			</form>
 		</div>
@@ -69,4 +63,3 @@
 		<img class="footImg" src="RestaurantLogoBottom.png" alt="logoBottom">
 	</div>
 </body>
-</html>

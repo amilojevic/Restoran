@@ -1,13 +1,4 @@
-<!DOCTYPE HTML >
-<html>
-<head>
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<title>ETF Restorante Login in</title>
-	<link rel="stylesheet" type="text/css" href="styleRestorante.css">
-	<meta name="viewport" content="width=device-width">
-
-</head>
-<body>
+<body id="body">
 	<div class="mainHeader">
 		<img class="imageLogo" src="http://www.logofound.com/wp-content/uploads/2014/08/Restaurant_Logo_Design_Template3.jpg" alt="logo" />
 		<div class="mainTitle">ETF Restorante</div>
@@ -15,22 +6,22 @@
 	<div class="navbar">
 		<ul class="navbarItems">
 			<li>
-				<a href="ETFRestorante.html"> Home</a>
+				<label onclick="loadDoc('ETFRestorante.html')">Home</button>
 			</li>
 			<li>
-				About us
+				<a href="#"> About us</a>
 			</li>
 			<li>
-				Our offers
+				<a href="#">Our offers</a>
 			</li>
 			<li>
-				<a href="Reservations.html"> Reservations</a>
+				<label onclick="loadDoc('Reservations.html')">Reservations</button>
 			</li>
 			<li>
-				<a href="ContactUs.html"> Contact us</a>
+				<label onclick="loadDoc('ContactUs.html')">Contact Us</button>
 			</li>
 			<li>
-				<a href="Registrations.html"> Registration</a>
+				<label onclick="loadDoc('Registrations.html')">Registration</button>
 			</li>
 		</ul>
 	</div>	
@@ -43,18 +34,23 @@
 			<div class="titleMessage">
 				Fill out the form bellow
 			</div>
-			<form class="formRegister">
+			<form class="formRegister" name="formRegister" onsubmit="return validateRegistration();>
 				<p class="titleMessage">Enter Your name and last name:</p>
-				<input class="registerName" type="text" placeholder="Name">
-				<input class="registerLastname" type="text" placeholder="Last Name">
+				<div class="registerName" id="errRegisterName" >Please fill your register name</div>
+				<input class="registerName" name="registerName" type="text" placeholder="Name">
+				<div class="registerLastname" id="errRegisterLastName" >Please fill your register Last Name</div>
+				<input class="registerLastname" name="registerLastname" type="text" placeholder="Last Name">
 				<p class="titleMessage">Enter Your username:</p>
-  				<input class="registerUsername" type="text" placeholder="Your username">
+				<div class="registerUsername" id="errRegisterUsername" >Please fill your register username</div>
+  				<input class="registerUsername" name="registerUsername" type="text" placeholder="Your username">
   				<p class="titleMessage">Enter Your password:</p>
-				<input class="registerPassword" type="password" placeholder=" Password">
+  				<div class="registerPassword" id="errRegisterPassword" >Please fill your register password</div>
+				<input class="registerPassword" name="registerPassword" type="password" placeholder=" Password">
 				<p class="titleMessage">Enter Your password again:</p>
-				<input class="registerPassword" type="password" placeholder="Repeat Your password">
+				<div class="registerPassword" id="errRegisterPasswordAgain" >Please fill your register password</div>
+				<input class="registerPassword" name="registerPasswordAgain" type="password" placeholder="Repeat Your password">
 				<div class="buttonHolder">
-					<input class="reservationSend" type="submit" value="Send">
+					<input class="reservationSend" type="submit" value="Send" onclick="return validateRegistration()">
 				</div>
 			</form>
 		</div>
@@ -63,4 +59,3 @@
 		<img class="footImg" src="RestaurantLogoBottom.png" alt="logoBottom">
 	</div>
 </body>
-</html>

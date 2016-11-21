@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="scriptRestorante.js"></script>
 	<meta name="viewport" content="width=device-width">
 </head>
-<body>
+<body id="body">
 	<div class="mainHeader">
 		<img class="imageLogo" src="RestoranteLogo.jpg" alt="logoTop">
 		<div class="mainTitle">ETF Restorante</div>
@@ -15,7 +15,7 @@
 	<nav class="navbar" id="navigation">
 		<ul class="navbarItems">
 			<li>
-				<a href="ETFRestorante.html"> Home</a>
+				<label onclick="loadDoc('ETFRestorante.html')">Home</button>
 			</li>
 			<li>
 				<a href="#"> About us</a>
@@ -24,19 +24,19 @@
 				<a href="#">Our offers</a>
 			</li>
 			<li>
-				<a href="Reservations.html"> Reservations</a>
+				<label onclick="loadDoc('Reservations.html')">Reservations</button>
 			</li>
 			<li>
-				<a href="ContactUs.html"> Contact us</a>
+				<label onclick="loadDoc('ContactUs.html')">Contact Us</button>
 			</li>
 			<li>
-				<a href="Registrations.html"> Registration</a>
+				<label onclick="loadDoc('Registrations.html')">Registration</button>
 			</li>
 		</ul>
 	</nav>
-	<div class="quoteContainer" >
+	<div class="quoteContainer">
 
-		<div class="mySlides">
+		<div class="mySlides" id="mySlides">
     		<div class="quoteTitle">"If you can't feed a hundred people, then feed just one."</div>
     		<div class="quoteAuthor"><i>- Mother Teresa</i></div>
   		</div>
