@@ -124,11 +124,13 @@ function validateLogin() {
 
 function validateRegistration(){
     var x = document.forms["formRegister"];
+    var pattern = "<[^>]*script";
     if(x["registerName"].value == "")
     {
         document.getElementById("errRegisterName").style.display="block";
         return false;
-    } else {
+    }
+    else {
         document.getElementById("errRegisterName").style.display="none";
     }
     if(x["registerLastname"].value == "")
