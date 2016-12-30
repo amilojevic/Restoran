@@ -26,8 +26,8 @@ if(isset($_POST['exportPDF'])) {
 			$pdf->SetFont('Arial','B',12);
 			$pdf->Cell(20,12,'Name',1);	
 			$pdf->Cell(25,12,'Last name',1);	
-			$pdf->Cell(40,12,'Email',1);	
-			$pdf->Cell(20,12,'Time',1);	
+			$pdf->Cell(60,12,'Email',1);	
+			$pdf->Cell(30,12,'Time',1);	
 			$pdf->Cell(20,12,'Id',1);	
 			$pdf->Ln();
 			$pdf->SetFont('Arial','',12);	
@@ -41,8 +41,8 @@ if(isset($_POST['exportPDF'])) {
 
            		$pdf->Cell(20,12,$reservationName,1);
            		$pdf->Cell(25,12,$reservationLastName,1);
-           		$pdf->Cell(40,12,$reservationEmail,1);
-           		$pdf->Cell(20,12,$reservationTime,1);
+           		$pdf->Cell(60,12,$reservationEmail,1);
+           		$pdf->Cell(30,12,$reservationTime,1);
            		$pdf->Cell(20,12,$reservationId,1);
 					
 				$pdf->Ln();
@@ -153,7 +153,7 @@ function showResult(str) {
 				<div class="titleMessage">
 					All reservations made
 				</div>
-				<table>
+				<table style="padding-left: 2%">
 				<tr>
 					<th>
 						Name
@@ -194,10 +194,10 @@ function showResult(str) {
 				}
 				?>
 				</table>
-				<form method="POST">
+				<form method="POST" style="padding-left: 1%">
 					<input class="adminSend" type="submit" value="Export CSV" name="exportCSV">
 				</form>
-				<form method="POST">
+				<form method="POST" style="padding-left: 1%">
 					<input class="adminSend" type="submit" value="Export PDF" name="exportPDF">
 				</form>
 		</div>
