@@ -14,7 +14,6 @@ if (strlen($query)>2) {
     $lastName=$xmlTag->item($i)->getElementsByTagName('reservationLastName');
     if($count < 10){
       if ($name->item(0)->nodeType==1) {
-        //find a link matching the search text
         if ((stristr($name->item(0)->childNodes->item(0)->nodeValue,$query)) || (stristr($lastName->item(0)->childNodes->item(0)->nodeValue,$query))) {
           if ($hint=="") {
             $hint="<a href=#>" . 
