@@ -15,3 +15,11 @@ Restoran za WT. Mogucnost pregleda meni-a, rezervacije i drugo. Andrej Milojevic
 * Ajax loadnje radi na Firefoxu bez dizanje servera dok na onstalim browserima treba dici server
 * Ima mali bug gdje se u formi kada nastupi greska pomjeri input linija u novi red
 * Ovaj update na folderu restoran je samo zbog toga sto sam obrisao jedan nevazan file(ostao tokom commita), svi ostali filovi (filovi vezabi za zadacu) su commitani 2 sata prije roka
+
+# Spirala 3
+
+* Uraden login sa podacima iz xml file (user admin pass admin)
+* Kada se user prijavi dobije dva button-a za logout i da ode na admin page
+* Na admin page-u je uraden search (php sa ajaxom), ispis podataka iz xml, edit podataka, kao i export podataka u csv i pdf file
+* Pritiskom na enter tipku se vrsi search gdje ce se pojaviti svi moguci elemnti koji se slazu po imenu ili prezimenu
+* Na stranici Reservations.php se ubacuju podaci u xml file

@@ -8,8 +8,6 @@ $reservationIdFlag = false;
 if(isset($_POST['buttonEdit'])){
 	$reservationId = $_POST['reservationId'];
 	$reservationIdFlag = true;
-	echo "Ovdje";
-	print_r($reservationId);
 }
 if(isset($_POST['reservation'])) {
 		$reservationId = $_POST['reservationId'];

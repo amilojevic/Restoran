@@ -13,10 +13,13 @@ if(isset($_POST['login'])) {
 		$xml = new SimpleXMLElement('users.xml', 0, true);
 		if($password == $xml->password)
 		{
-			
 			$_SESSION['username'] = $username;
 			header('Location: Registrations.php');
 			$loggedIn = false;
+		}
+		else
+		{
+			session_destroy();
 		}
 	}
 	$error = true;
@@ -29,9 +32,12 @@ if(isset($_POST['adminPage'])) {
 	header('Location: AdminPage.php');
 }
 if($_SESSION){
-	if($_SESSION['username'])
+	if($_SESSION['username'] == 'admin')
 	{
 		$loggedIn = true;
+	}
+	else{
+		$error = true;
 	}
 }
 ?>
