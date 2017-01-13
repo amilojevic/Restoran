@@ -9,69 +9,155 @@ if(isset($_POST['buttonEdit'])) {
 		echo $_POST['reservationName'];
 	}
 if(isset($_POST['exportCSV'])) {
-    if (file_exists('reservations.xml')) 
-           {
-       		$xml = simplexml_load_file('reservations.xml');
-       		$f = fopen('podaci.csv', 'w');
-       		createCsv($xml, $f);
-       		fclose($f);
-   }
+    
+    $veza = new PDO("mysql:dbname=restoran;host=localhost;charset=utf8", "andrej", "admin");
+    $veza->exec("set names utf8");
+    $rezultat = $veza->query("select idRezervacije, idKorisnika, ime, prezime, email, vrijeme from rezervacija");
+    if (!$rezultat) {
+        $greska = $veza->errorInfo();
+        print "SQL greška: " . $greska[2];
+        exit();
+    } 
+    $f = fopen('podaci.csv', 'w');
+    createCsv($rezultat, $f);
+    fclose($f);
 }
 if(isset($_POST['exportPDF'])) {
-    if (file_exists('reservations.xml')) 
-           {
-       		$xml = simplexml_load_file('reservations.xml');
-       		$pdf = new FPDF();
-			$pdf->AddPage();
-			$pdf->SetFont('Arial','B',12);
-			$pdf->Cell(20,12,'Name',1);	
-			$pdf->Cell(25,12,'Last name',1);	
-			$pdf->Cell(60,12,'Email',1);	
-			$pdf->Cell(30,12,'Time',1);	
-			$pdf->Cell(20,12,'Id',1);	
-			$pdf->Ln();
-			$pdf->SetFont('Arial','',12);	
-			foreach ($xml as $item) 
-        	{
-           		$reservationName = $item->reservationName;
-           		$reservationLastName = $item->reservationLastName;
-           		$reservationEmail = $item->reservationEmail;
-           		$reservationTime = $item->reservationTime;
-           		$reservationId = $item->reservationId;
+   	$veza = new PDO("mysql:dbname=restoran;host=localhost;charset=utf8", "andrej", "admin");
+     $veza->exec("set names utf8");
+     $rezultat = $veza->query("select idRezervacije, idKorisnika, ime, prezime, email, vrijeme from rezervacija");
+     if (!$rezultat) {
+          $greska = $veza->errorInfo();
+          print "SQL greška: " . $greska[2];
+          exit();
+     } 
+    $pdf = new FPDF();
+	$pdf->AddPage();
+	$pdf->SetFont('Arial','B',12);
+	$pdf->Cell(20,12,'Name',1);	
+	$pdf->Cell(25,12,'Last name',1);	
+	$pdf->Cell(60,12,'Email',1);	
+	$pdf->Cell(30,12,'Time',1);	
+	$pdf->Cell(20,12,'Id',1);	
+	$pdf->Ln();
+	$pdf->SetFont('Arial','',12);	
+    foreach ($rezultat as $rezervacija) {
+     				/*if($rezervacija['idRezervacije'] == $item->reservationId)
+     				{
+     					$reservationExists = true;
+     				}*/
+     	$reservationName = $rezervacija['ime'];
+        $reservationLastName = $rezervacija['prezime'];
+        $reservationEmail = $rezervacija['email'];
+        $reservationTime = $rezervacija['vrijeme'];
+        $reservationId = $rezervacija['idRezervacije'];
 
-           		$pdf->Cell(20,12,$reservationName,1);
-           		$pdf->Cell(25,12,$reservationLastName,1);
-           		$pdf->Cell(60,12,$reservationEmail,1);
-           		$pdf->Cell(30,12,$reservationTime,1);
-           		$pdf->Cell(20,12,$reservationId,1);
-					
-				$pdf->Ln();
-			}
+        $pdf->Cell(20,12,$reservationName,1);
+        $pdf->Cell(25,12,$reservationLastName,1);
+        $pdf->Cell(60,12,$reservationEmail,1);
+        $pdf->Cell(30,12,$reservationTime,1);
+        $pdf->Cell(20,12,$reservationId,1);
+			
+		$pdf->Ln();
+    }
 			$pdf->Output();
+
+}
+
+if(isset($_POST['exportUserSQL'])) {
+    if (file_exists('users.xml')) 
+           {
+       		$xml = simplexml_load_file('users.xml');
+			foreach ($xml as $item){
+				$userExists = false;
+				$veza = new PDO("mysql:dbname=restoran;host=localhost;charset=utf8", "andrej", "admin");
+     			$veza->exec("set names utf8");
+     			$rezultat = $veza->query("select id, username, password, admin from user");
+     			if (!$rezultat) {
+          			$greska = $veza->errorInfo();
+          			print "SQL greška: " . $greska[2];
+          			exit();
+     			} 
+
+     			foreach ($rezultat as $user) {
+     				if($user['id'] == $item->id)
+     				{
+     					$userExists = true;
+     				}
+     			}
+           		$id = $item->id;
+           		$username = $item->username;
+           		$password = $item->password;
+           		$isAdmin = $item->isAdmin;
+
+           		if(!$userExists)
+           		{
+           			$rezultat = $veza->query("INSERT INTO user SET id=$id, username='$username', password='$password', admin=$isAdmin");
+           			
+           		}
+			}
    }
 
 }
-function createCsv($xml,$f)
+
+if(isset($_POST['exportReservationSQL'])) {
+    if (file_exists('reservations.xml')) 
+           {
+       		$xml = simplexml_load_file('reservations.xml');
+			foreach ($xml as $item){
+				
+				$reservationExists = false;
+				$veza = new PDO("mysql:dbname=restoran;host=localhost;charset=utf8", "andrej", "admin");
+     			$veza->exec("set names utf8");
+     			$rezultat = $veza->query("select idRezervacije, idKorisnika, ime, prezime, email, vrijeme from rezervacija");
+     			if (!$rezultat) {
+          			$greska = $veza->errorInfo();
+          			print "SQL greška: " . $greska[2];
+          			//exit();
+     			} 
+
+     			foreach ($rezultat as $rezervacija) {
+     				if($rezervacija['idRezervacije'] == $item->reservationId)
+     				{
+     					$reservationExists = true;
+     				}
+     			}
+           		$reservationId = $item->reservationId;
+           		$idKorisnika = $item->idKorisnik;
+           		$ime = $item->reservationName;
+           		$prezime = $item->reservationLastName;
+           		$email = $item->reservationEmail;
+           		$vrijeme = $item->reservationTime;
+
+           		if(!$reservationExists)
+           		{
+           			$rezultat = $veza->query("INSERT INTO rezervacija SET idRezervacije=$reservationId, idKorisnika=$idKorisnika, ime='$ime', prezime='$prezime',email='$email',vrijeme='$vrijeme'");
+           			
+           		}
+			}
+   }
+
+}
+
+function createCsv($rezultat,$f)
     {
     	$put_arr = array('reservationName','reservationLastName','reservationEmail','reservationTime','reservationId'); 
     	fputcsv($f, $put_arr ,',','"');
-        foreach ($xml as $item) 
+        foreach ($rezultat as $rezervacija) 
         {
-           $reservationName = $item->reservationName;
-           $reservationLastName = $item->reservationLastName;
-           $reservationEmail = $item->reservationEmail;
-           $reservationTime = $item->reservationTime;
-           $reservationId = $item->reservationId;
+            $reservationName = $rezervacija['ime'];
+        	$reservationLastName = $rezervacija['prezime'];
+        	$reservationEmail = $rezervacija['email'];
+        	$reservationTime = $rezervacija['vrijeme'];
+        	$reservationId = $rezervacija['idRezervacije'];
 
-           $put_arr = array($reservationName,$reservationLastName,$reservationEmail,$reservationTime,$reservationId); 
-           fputcsv($f, $put_arr ,',','"');
+            $put_arr = array($reservationName,$reservationLastName,$reservationEmail,$reservationTime,$reservationId); 
+            fputcsv($f, $put_arr ,',','"');
 
      
 
 }}
-if(isset($_POST['exportPDF'])) {
-		echo "Obdje sam";
-	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -125,7 +211,7 @@ function showResult(str) {
 				<a href="Reservations.php">Reservations </a>
 			</li>
 			<li>
-				<a href="ContactUs.html">Contact Us </a>
+				<a href="ContactUs.php">Contact Us </a>
 			</li>
 			<li>
 				<a href="Registrations.php">Registration </a>
@@ -169,29 +255,30 @@ function showResult(str) {
 					</th>
 				</tr>
 				<?php
-				if(file_exists('reservations.xml')) {
-					$xml = @simplexml_load_file('reservations.xml');
-					foreach ($xml->reservation as $reservation) {
+				$veza = new PDO("mysql:dbname=restoran;host=localhost;charset=utf8", "andrej", "admin");
+     			$veza->exec("set names utf8");
+     			$rezultat = $veza->query("select idRezervacije, idKorisnika, ime, prezime, email, vrijeme from rezervacija");
+     			if (!$rezultat) {
+          			$greska = $veza->errorInfo();
+          			print "SQL greška: " . $greska[2];
+          			exit();
+     			} 
+					foreach ($rezultat as $rezervacija) {
 						echo '<tr>
-								<td>'  .$reservation->reservationName. '</td>
-								<td>' .$reservation->reservationLastName.' </td>
-								<td>' .$reservation->reservationEmail.' </td>
-								<td>' .$reservation->reservationTime.' </td>
+								<td>'  .$rezervacija['ime'].'</td>
+								<td>' .$rezervacija['prezime'].' </td>
+								<td>' .$rezervacija['email'].' </td>
+								<td>' .$rezervacija['vrijeme'].' </td>
 								<td style="width:0%;"><form action="AdminEdit.php" method="post">
-									<input style="width:0%; display: none;" type="text" name="reservationName" value="'.$reservation->reservationName.'">
-									<input style="width:0%; display: none;" type="text" name="reservationLastName" value="'.$reservation->reservationLastName.'">
-									<input style="width:0%; display: none;" type="text" name="reservationEmail" value="'.$reservation->reservationEmail.'">
-									<input style="width:0%; display: none;" type="text" name="reservationTime" value="'.$reservation->reservationTime.'">
-									<input style="width:0%; display: none;" type="text" name="reservationId" value="'.$reservation->reservationId.'">
+									<input style="width:0%; display: none;" type="text" name="reservationName" value="'.$rezervacija['ime'].'">
+									<input style="width:0%; display: none;" type="text" name="reservationLastName" value="'.$rezervacija['prezime'].'">
+									<input style="width:0%; display: none;" type="text" name="reservationEmail" value="'.$rezervacija['email'].'">
+									<input style="width:0%; display: none;" type="text" name="reservationTime" value="'.$rezervacija['vrijeme'].'">
+									<input style="width:0%; display: none;" type="text" name="reservationId" value="'.$rezervacija['idRezervacije'].'">
 									<button class="adminEdit" type="submit" name="buttonEdit">Edit</button></td>
 								</form>
 							 </tr>';
 					}
-				}
-				else
-				{
-					echo '<p>File does not exist. Sorry </p>';
-				}
 				?>
 				</table>
 				<form method="POST" style="padding-left: 1%">
@@ -199,6 +286,12 @@ function showResult(str) {
 				</form>
 				<form method="POST" style="padding-left: 1%">
 					<input class="adminSend" type="submit" value="Export PDF" name="exportPDF">
+				</form>
+				<form method="POST" style="padding-left: 1%">
+					<input class="adminSend" type="submit" value="Export XML User file to SQL" name="exportUserSQL">
+				</form>
+				<form method="POST" style="padding-left: 1%">
+					<input class="adminSend" type="submit" value="Export XML Reservations file to SQL" name="exportReservationSQL">
 				</form>
 		</div>
 	</div>

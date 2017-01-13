@@ -6,12 +6,12 @@ if(!$_SESSION) {
 } else {
 	$reservationIdUser = (int)$_SESSION['idUser'];
 }
-	if(isset($_POST['reservation'])){
-		$reservationName = $_POST['reservationName'];
-		$reservationLastName = $_POST['reservationLastName'];
-		$reservationEmail = $_POST['reservationEmail'];
-		$reservationTime = $_POST['reservationTime'];
-		$reservationId = 0;
+	if(isset($_POST['contact'])){
+		$contactName = $_POST['contactName'];
+		$contactEmail = $_POST['contactEmail'];
+		$subject = $_POST['subject'];
+		$text = $_POST['text'];
+
 
 		//$reservationDate = $_POST['reservationDate'];
 		/*if(file_exists('reservations.xml'))
@@ -47,7 +47,7 @@ if(!$_SESSION) {
 		$veza = new PDO("mysql:dbname=restoran;host=localhost;charset=utf8", "andrej", "admin");
      	$veza->exec("set names utf8");
      	
-     	$rezultat = $veza->query("INSERT INTO rezervacija SET idKorisnika=$reservationIdUser, ime='$reservationName', prezime='$reservationLastName',email='$reservationEmail',vrijeme='$reservationTime'"); 
+     	$rezultat = $veza->query("INSERT INTO kontakt SET idKorisnika=$reservationIdUser, ime='$contactName', email='$contactEmail',subjekat='$subject',tekst='$text'"); 
 
 	}
 ?>
@@ -60,9 +60,9 @@ if(!$_SESSION) {
 	<script type="text/javascript" src="scriptRestorante.js"></script>
 	<meta name="viewport" content="width=device-width">
 </head>
-<body id="body"> 
+<body id="body">
 	<div class="mainHeader">
-		<img class="imageLogo" src="RestoranteLogo.jpg" alt="logoRestoran" />
+		<img class="imageLogo" src="RestoranteLogo.jpg" alt="logo" />
 		<div class="mainTitle">ETF Restorante</div>
 	</div>
 		<nav class="navbar" id="navigation">
@@ -87,32 +87,39 @@ if(!$_SESSION) {
 			</li>
 		</ul>
 	</nav>
-	
 	<div class="bodyImage"> 
-		<div class="tileReservations">
-			<div class="contactTitle">
-					Make a reservation
-			</div>
-			<div class="titleMessage">
-				Book a table and we will send a email to confirm Your reservation
-			</div>
-			<div class="reservationDecoration">
-				<img class="imageReservation" src="reservationsImage.png" alt="reservation">
-			</div>
-			<form class="formReservations" method="POST" name="formReservations" onsubmit="return validateReservation();">
-				<div class="reservationName" id="errReservationName" >Please fill your reservation name</div>
-				<input class="reservationName" name="reservationName" type="text" placeholder="Name">
-				<div class="reservationName" id="errReservationLastName" >Please fill your reservation last name</div>
-				<input class="reservationLastName" name="reservationLastName" type="text" placeholder=" Last Name">
-				<div class="reservationName" id="errReservationEmail" >Please fill your reservation email</div>
-				<input class="reservationEmail" name="reservationEmail" type="email" placeholder="Email"> 
-				<div class="reservationName" id="errReservationTime" >Please fill your reservation time</div>
-				<input class="reservationTime" name="reservationTime" type="text" placeholder="Time"> 
-				<!--<input type="date" class="reservationDate" name="reservationDate" min="2016-11-07">-->
+		<div class="tileContact">
+			<form class="formContact" method="POST" name="formContact" onsubmit="return validateContact();">
+				<div class="contactTitle">
+					Send a message
+				</div>
+				<div class="titleMessage">
+					Do you have somenthing to tell us. Please do not hesitate to get in touch to us via our contact form
+				</div>
+				<div id="errName" >Please fill your contact name</div>
+				<input class="contactName" name="contactName" type="text" placeholder="Name">
+				<div class="contactEmail" name="contactEmail" id="errEmail" >Please fill your contact email</div>
+				<input class="contactEmail" name="contactEmail" type="email" placeholder="Your Email Address"> 
+				<div class="contactSubject" id="errSubject" >Please fill your contact subject</div>
+				<input class="contactSubject" name="subject" type="text" placeholder="Subject"> 
+				<div class="contactSubject" id="errText" >Please fill your contact text</div>
+				<textarea class="contactMessage" name="text" placeholder="Your Message"></textarea>
 				<div class="buttonHolder">
-					<input class="reservationSend" name="reservation" type="submit" value="Send" onclick="return validateReservation()">
+					<input class="reservationSend" name="contact" type="submit" value="Send" onclick="return validateContact()">
 				</div>
 			</form>
+			<div class="socialContact">
+				<div class="contactTitle">
+					Other ways of contact
+				</div>
+				<div class="titleMessage">
+					You can reach also on these social networks, number or email. Please contact us if You have any questions
+				</div>
+				<p>Tel number: 003876136845212 </p>
+				<p>Email: ETFRestorante@mail.etf.unsa.ba</p>
+				<p>Site: www.ETFRestorante.co.uk</p>
+				<p>Work hours: Every day from 9:00 to 23:00</p>
+			</div>
 		</div>
 	</div>
 	<div class="footSocial">

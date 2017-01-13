@@ -6,21 +6,31 @@ session_start();
 if(isset($_POST['login'])) {
 	$username = $_POST['loginUser'];
 	$password = $_POST['loginPass'];
-	if(file_exists('users.xml'))
+	$veza = new PDO("mysql:dbname=restoran;host=localhost;charset=utf8", "andrej", "admin");
+    $veza->exec("set names utf8");
+    $rezultat = $veza->query("select id, username, password, admin from user where username='$username'");
+    if (!$rezultat) {
+    	$greska = $veza->errorInfo();
+    	print "SQL greška: " . $greska[2];
+    	exit();
+    } 
+		
+		
+	foreach ($rezultat as $user) {
+     	$idUser = $user['id'];
+     	$passwordFromSql = $user['password'];
+     }
+	if($password == $passwordFromSql)
 	{
 		
-
-		$xml = new SimpleXMLElement('users.xml', 0, true);
-		if($password == $xml->password)
-		{
-			$_SESSION['username'] = $username;
-			header('Location: Registrations.php');
-			$loggedIn = false;
-		}
-		else
-		{
-			session_destroy();
-		}
+		$_SESSION['username'] = $username;
+		$_SESSION['idUser'] = (string)$idUser;
+		header('Location: Registrations.php');
+		$loggedIn = false;
+	}
+	else
+	{
+		session_destroy();
 	}
 	$error = true;
 }
@@ -70,7 +80,7 @@ if($_SESSION){
 				<a href="Reservations.php">Reservations </a>
 			</li>
 			<li>
-				<a href="ContactUs.html">Contact Us </a>
+				<a href="ContactUs.php">Contact Us </a>
 			</li>
 			<li>
 				<a href="Registrations.php">Registration </a>
@@ -89,7 +99,7 @@ if($_SESSION){
 					If You are a new user please click on a button bellow to register
 				</div>
 				<div class="buttonHolder">
-					<form style="display: inline" onsubmit="return loadDoc('newUser.html');">
+					<form style="display: inline" action="newUser.php">
  						<button class="buttonRegister" type="submit">Register</button> 
 					</form>
 				</div>

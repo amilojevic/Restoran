@@ -85,7 +85,7 @@ function showResult(str) {
 				<a href="Reservations.php">Reservations </a>
 			</li>
 			<li>
-				<a href="ContactUs.html">Contact Us </a>
+				<a href="ContactUs.php">Contact Us </a>
 			</li>
 			<li>
 				<a href="Registrations.php">Registration </a>

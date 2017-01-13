@@ -1,3 +1,17 @@
+<?php
+session_start();
+if(isset($_POST['registerNewUser'])){
+	$registerUsername = $_POST['registerUsername'];
+	$registerPassword = $_POST['registerPassword'];
+	$registerPasswordAgain = $_POST['registerPasswordAgain'];
+	$admin = 0;
+	$veza = new PDO("mysql:dbname=restoran;host=localhost;charset=utf8", "andrej", "admin");
+    $veza->exec("set names utf8");
+     	
+    $rezultat = $veza->query("INSERT INTO user SET  username='$registerUsername', password='$registerPassword',admin=$admin"); 
+
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,12 +57,7 @@
 			<div class="titleMessage">
 				Fill out the form bellow
 			</div>
-			<form class="formRegister" name="formRegister" onsubmit="return validateRegistration();>
-				<p class="titleMessage">Enter Your name and last name:</p>
-				<div class="registerName" id="errRegisterName" >Please fill your register name</div>
-				<input class="registerName" name="registerName" type="text" placeholder="Name">
-				<div class="registerLastname" id="errRegisterLastName" >Please fill your register Last Name</div>
-				<input class="registerLastname" name="registerLastname" type="text" placeholder="Last Name">
+			<form class="formRegister" method="POST" name="formRegister" onsubmit="return validateRegistration();"">
 				<p class="titleMessage">Enter Your username:</p>
 				<div class="registerUsername" id="errRegisterUsername" >Please fill your register username</div>
   				<input class="registerUsername" name="registerUsername" type="text" placeholder="Your username">
@@ -59,7 +68,7 @@
 				<div class="registerPassword" id="errRegisterPasswordAgain" >Please fill your register password</div>
 				<input class="registerPassword" name="registerPasswordAgain" type="password" placeholder="Repeat Your password">
 				<div class="buttonHolder">
-					<input class="reservationSend" type="submit" value="Send" onclick="return validateRegistration()">
+					<input class="reservationSend" name="registerNewUser" type="submit" value="Send" onclick="return validateRegistration()">
 				</div>
 			</form>
 		</div>

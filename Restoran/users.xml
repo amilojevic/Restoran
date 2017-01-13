@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<users>
 <admin>
+	<id>1</id>
 	<username>admin</username>
 	<password>admin</password>
+	<isAdmin>1</isAdmin>
 </admin>
+<admin>
+	<id>99</id>
+	<username>guest</username>
+	<password>guest</password>
+	<isAdmin>0</isAdmin>
+</admin>
+<admin>
+	<id>2</id>
+	<username>andrej</username>
+	<password>admin</password>
+	<isAdmin>1</isAdmin>
+</admin>
+</users>
+
