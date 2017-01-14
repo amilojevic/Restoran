@@ -3,7 +3,9 @@ require('fpdf181/fpdf.php');
 session_start();
 if($_SESSION['username'] != 'admin') {
 	header('Location: Registrations.php');
-}
+} 
+
+
 if(isset($_POST['buttonEdit'])) {
 		echo "Obdje sam";
 		echo $_POST['reservationName'];

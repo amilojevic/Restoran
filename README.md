@@ -23,3 +23,12 @@ Restoran za WT. Mogucnost pregleda meni-a, rezervacije i drugo. Andrej Milojevic
 * Na admin page-u je uraden search (php sa ajaxom), ispis podataka iz xml, edit podataka, kao i export podataka u csv i pdf file
 * Pritiskom na enter tipku se vrsi search gdje ce se pojaviti svi moguci elemnti koji se slazu po imenu ili prezimenu
 * Na stranici Reservations.php se ubacuju podaci u xml file
+
+# Spirala 4
+
+* Napravljena je baza sa usernameom andrej i passwordom admin
+* U bazi su 3 tabele, User, Rezervacije i kontakt. Tabele su povezane sa id kljucem usera (gdje je ako nije logovan user a napravi rezervaciju ili ostavi komentar id 99)
+* Importuje se 2 xml dokumenta sa admin page-a. A to su users.xml i reservations.xml
+* Napravljeno je da sql radi sa formama umjeto sa xml-om
+* Rest metoda je u posebnom php-u koji se zove restPart
+* restPart.php vraca sve reservacije reervacija sa odredenim id-om i reservacija sa imenom
