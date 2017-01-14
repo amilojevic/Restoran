@@ -15,7 +15,7 @@ if(isset($_POST['login'])) {
     	exit();
     } 
 		
-		
+	$passwordFromSql="";	
 	foreach ($rezultat as $user) {
      	$idUser = $user['id'];
      	$passwordFromSql = $user['password'];
